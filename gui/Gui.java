@@ -28,12 +28,12 @@ public class Gui extends JPanel {
 				addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						final Rock selected = (Rock) getSelectedItem();
-						Information.rock_ids = selected.getRockId();
-						Information.ore_id = selected.getOreId();
+						Information.rockIds = selected.getRockId();
+						Information.oreIds = selected.getOreId();
 					}
 				});
 			}
-		};
+	};
 
 		this.add(rocks);
 

@@ -29,17 +29,12 @@ public class Mine extends Task {
 	 */
 	public void execute() {
 		// get the nearest rock
-		GameObject rock = ctx.objects.select().id(Information.rock_ids)
-				.nearest().poll();
+		GameObject rock = ctx.objects.select().id(Information.rockIds).nearest().poll();
 
 		// if we are not mining and not moving
 		if (ctx.players.local().animation() == -1
 				&& !ctx.players.local().inMotion()) {
-			Condition.sleep(Random.getDelay()); // sleeps for
-												// "a suggested human reaction delay"
-												// to stop instantaneous and
-												// unhumanlike reactions
-			
+			Condition.sleep(Random.getDelay()); // sleeps for "a suggested human reaction delay" to stop instantaneous and unhumanlike reactions
 			if (ctx.players.local().animation() == -1
 					&& !ctx.players.local().inMotion()) { //double check we aren't doing anything still because there is a pause sometimes
 				if(rock.interact("Mine")){
@@ -48,12 +43,12 @@ public class Mine extends Task {
 		                 public Boolean call() throws Exception {
 		                     return ctx.players.local().animation()!=-1; //sleep until we ARE mining, stops spam clicks
 		                 }
-		             }, 600, 5);
+					}, 600, 5);
 				}
 			}
-			}
 		}
-
 	}
+
+}
 
 

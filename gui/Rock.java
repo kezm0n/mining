@@ -5,7 +5,7 @@ package mining.gui;
  * enums for each rock and it's ore (ids) to be utilised by the gui
  * 
  */
-public enum Rock {
+enum Rock {
 	COPPER(new int[] { 11768, 11769, 11770, 14969 }, 436), 
 	TIN(new int[] { 11765, 11766, 11767, 14973 }, 438),
 	IRON(new int[] {14971, 14970}, 440),
@@ -16,10 +16,8 @@ public enum Rock {
 	
 	
 	/**
-	 * @param rockId
-	 *            int[] containing all possible rock ids for this specific rock
-	 * @param oreId
-	 *            int for ore id for this specific rock
+	 * @param rockId int[] containing all possible rock ids for this specific rock
+	 * @param oreId int for ore id for this specific rock
 	 */
 	private Rock(int[] rockId, int oreId) {
 		this.rockId = rockId;
@@ -27,16 +25,16 @@ public enum Rock {
 	}	
 	
 	/**
-	 * @return array of rock ids
+	 * @return int[] of rock ids
 	 */
-	public int[] getRockId() {
+	int[] getRockId() {
 		return this.rockId;
 	}
 
 	/**
 	 * @return int of ore id
 	 */
-	public int getOreId() {
+	int getOreId() {
 		return this.oreId;
 	}
 

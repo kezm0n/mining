@@ -32,7 +32,7 @@ public class Drop extends Task {
 	 * loops though specific ore in inventory and drops it
 	 */
 	public void execute() {
-		for (Item i : ctx.inventory.select().id(Information.ore_id)) {
+		for (Item i : ctx.inventory.select().id(Information.oreIds)) {
 			i.interact("Drop");
 			Condition.sleep(Random.getDelay()); // sleeps for
 												// "a suggested human reaction delay"

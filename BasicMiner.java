@@ -28,7 +28,8 @@ public class BasicMiner extends
 
 	// array list to contain tasks
 	private List<Task> tasks = new ArrayList<Task>();
-
+	private static final Color WHITE = new Color(255,255,255);
+	private static final Color BLACK = new Color(0,0,0);
 	private int mineCount = 0;
 
 	/**
@@ -44,24 +45,21 @@ public class BasicMiner extends
 	/**
 	 * Polls indefinitely
 	 */
-	public void poll() {
-		
-		
+	public void poll() {		
 		if (ctx.widgets.widget(211).component(0).visible()) { //no pickaxe!			
 			ctx.controller().stop();
 		}
 		
-			
-			// check they have selected what they want to mine
-			if (Information.ore_id != 0) {
-				// loop through all tasks, calling execute() as appropriate
-				for (Task t : tasks) {
-					if (t.activate()) {
+		// check they have selected what they want to mine
+		if (Information.oreIds != 0) {
+			// loop through all tasks, calling execute() as appropriate
+			for (Task t : tasks) {
+				if (t.activate()) {
 						t.execute();
-					}
 				}
 			}
 		}
+	}
 	
 
 	public String formatTime(final long time) {
@@ -72,10 +70,10 @@ public class BasicMiner extends
 
 	@Override
 	public void repaint(Graphics g) {
-		g.setColor(new Color(0, 0, 0));
+		g.setColor(BLACK);
 		g.fillRect(4, 5, 129, 56);
 		g.drawRect(4, 5, 129, 56);
-		g.setColor(new Color(255, 255, 255));
+		g.setColor(WHITE);
 		g.drawString("Basic Miner", 43, 18);
 		g.drawString("Run Time: " + formatTime(getTotalRuntime()), 10, 37);
 		g.drawString("Mined: " + mineCount, 10, 52);
@@ -87,7 +85,6 @@ public class BasicMiner extends
 		if (e.getMessage().toLowerCase().contains("you manage to")) {
 			mineCount++;
 		}
-
 	}
 
 
