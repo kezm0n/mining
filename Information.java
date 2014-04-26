@@ -7,8 +7,8 @@ package mining;
 public class Information {
 	
 	//array of ints for the unmined rock ids
-	public static int[] rock_ids;
+	public static int[] ROCK_IDS;
 	
 	//int for the ore id, explicit default 0 (though should be 0 anyway) so we can make sure the script only functions when options selected in gui
-	public static int ore_id = 0;
+	public static int ORE_ID = 0;
 }
